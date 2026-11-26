@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcpsheriff"
+version = "0.2.0"
+description = "Test any MCP server: handshake, tools, schemas, stdout hygiene and schema drift, from one command"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "NormaHub", email = "manager@normahub.cc" }]
+keywords = ["mcp", "model-context-protocol", "testing", "ci", "junit", "json-rpc", "ai-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.6"]
+
+[project.scripts]
+mcpsheriff = "mcpsheriff.cli:main"
+mcpsheriff-badge = "mcpsheriff.badge:main"
+
+[project.urls]
+Homepage = "https://normahub.cc"
+Documentation = "https://normahub.cc/docs"
+Repository = "https://github.com/normahubcc/mcpsheriff"
+Issues = "https://github.com/normahubcc/mcpsheriff/issues"
+
+[tool.setuptools.packages.find]
+include = ["mcpsheriff*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
